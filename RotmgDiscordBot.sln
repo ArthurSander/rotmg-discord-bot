@@ -5,13 +5,13 @@ VisualStudioVersion = 17.9.34321.82
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotmgDiscordBot.ConsoleWorker", "RotmgDiscordBot.Console\RotmgDiscordBot.ConsoleWorker.csproj", "{F0110DDE-3FFA-4271-B596-906431005D34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotmgDiscordBot.Domain", "RotmgDiscordBot.Domain\RotmgDiscordBot.Domain.csproj", "{02CDB3FA-7EDD-4E2C-A6BE-58730A5E8444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotmgDiscordBot.Domain", "RotmgDiscordBot.Domain\RotmgDiscordBot.Domain.csproj", "{02CDB3FA-7EDD-4E2C-A6BE-58730A5E8444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotmgDiscordBot.Data", "RotmgDiscordBot.Data\RotmgDiscordBot.Data.csproj", "{69F46D2B-D2B5-43EF-97BE-EE83ECB01E7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotmgDiscordBot.Data", "RotmgDiscordBot.Data\RotmgDiscordBot.Data.csproj", "{69F46D2B-D2B5-43EF-97BE-EE83ECB01E7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotmgDiscordBot.Shared", "RotmgDiscordBot.Shared\RotmgDiscordBot.Shared.csproj", "{8FC98861-7ED8-4990-9D9A-A0E51EDF4D3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotmgDiscordBot.Shared", "RotmgDiscordBot.Shared\RotmgDiscordBot.Shared.csproj", "{8FC98861-7ED8-4990-9D9A-A0E51EDF4D3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotmgDiscordBot.Infra.IoC", "RotmgDiscordBot.Infra.IoC\RotmgDiscordBot.Infra.IoC.csproj", "{C3AE8487-40DA-4F86-92B2-272AC7E918E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotmgDiscordBot.Infra.IoC", "RotmgDiscordBot.Infra.IoC\RotmgDiscordBot.Infra.IoC.csproj", "{C3AE8487-40DA-4F86-92B2-272AC7E918E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
