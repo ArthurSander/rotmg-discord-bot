@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RotmgDiscordBot.Data\RotmgDiscordBot.Data.csproj" />
     <ProjectReference Include="..\RotmgDiscordBot.Domain\RotmgDiscordBot.Domain.csproj" />
+    <ProjectReference Include="..\RotmgDiscordBot.Infra.DiscordConnection\RotmgDiscordBot.Infra.DiscordConnection.csproj" />
     <ProjectReference Include="..\RotmgDiscordBot.Infra.IoC\RotmgDiscordBot.Infra.IoC.csproj" />
     <ProjectReference Include="..\RotmgDiscordBot.Shared\RotmgDiscordBot.Shared.csproj" />
   </ItemGroup>

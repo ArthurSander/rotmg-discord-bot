@@ -7,6 +7,7 @@ namespace RotmgDiscordBot.ConsoleWorker
     {
         private readonly ITeste _teste;
         private readonly IApplicationSettings _settings;
+        private bool _running;
 
         public Main(ITeste teste, IApplicationSettings settings)
         {
@@ -16,7 +17,12 @@ namespace RotmgDiscordBot.ConsoleWorker
 
         public async Task RunAsync()
         {
+            _running = true;
             _teste.Run();
+
+            while (_running)
+                await Task.Delay(1000);
+
             Console.WriteLine($"Bot {_settings.BotName} shutting down.");
         }
     }

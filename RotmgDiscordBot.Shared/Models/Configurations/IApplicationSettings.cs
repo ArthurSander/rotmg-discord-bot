@@ -3,5 +3,6 @@
     public interface IApplicationSettings
     {
         string BotName { get; }
+        string BotToken { get; }
     }
 }
