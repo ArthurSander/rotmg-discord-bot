@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RotmgDiscordBot.Data\RotmgDiscordBot.Data.csproj" />
+    <ProjectReference Include="..\RotmgDiscordBot.Domain\RotmgDiscordBot.Domain.csproj" />
+    <ProjectReference Include="..\RotmgDiscordBot.Shared\RotmgDiscordBot.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
