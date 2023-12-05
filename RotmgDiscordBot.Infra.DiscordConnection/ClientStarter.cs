@@ -18,20 +18,31 @@ namespace RotmgDiscordBot.Infra.DiscordConnection
 
         public DiscordSocketClient Client { get; private set; }
 
-        public async Task StartAsync()
+        public async Task StartAsync(CancellationToken cancellationToken = default)
         {
+            if (await StopIfCancellationRequested(cancellationToken))
+                return;
+
             if(Client != null)
                 return;
 
             var client = new DiscordSocketClient(createNewConfig());
 
             client.Log += LogConsole;
+
+            if (await StopIfCancellationRequested(cancellationToken))
+                return;
+
             await client.LoginAsync(TokenType.Bot, _settings.BotToken);
             await client.StartAsync();
 
             Client = client;
+
             while (_running)
             {
+                if (await StopIfCancellationRequested(cancellationToken))
+                    return;
+
                 await Task.Delay(1000);
             }
             return;
@@ -56,6 +67,18 @@ namespace RotmgDiscordBot.Infra.DiscordConnection
             };
 
             return config;
+        }
+
+        private async Task<bool> StopIfCancellationRequested(CancellationToken cancellationToken)
+        {
+            if (!cancellationToken.IsCancellationRequested)
+                return false;
+
+            Stop();
+            await Client.LogoutAsync();
+            await Client.DisposeAsync();
+
+            return true;
         }
     }
 }

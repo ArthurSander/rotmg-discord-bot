@@ -6,13 +6,16 @@ namespace RotmgDiscordBot.Domain.Teste
     {
         private readonly DiscordSocketClient _discordClient;
 
+        private CancellationToken _cancellationToken;
+
         public DefaultTeste(DiscordSocketClient discordClient)
         {
             _discordClient = discordClient;
         }
 
-        public void Run()
+        public async Task Run(CancellationToken cancellationToken = default)
         {
+            _cancellationToken = cancellationToken;
             _discordClient.MessageReceived += HandleCommandAsync;
             Console.WriteLine("Teste ok.");
         }
@@ -23,6 +26,9 @@ namespace RotmgDiscordBot.Domain.Teste
                 return;
 
             if (message.Author.IsBot)
+                return;
+
+            if (_cancellationToken.IsCancellationRequested)
                 return;
 
             Console.WriteLine($"Mensagem recebida! {message.Content}");

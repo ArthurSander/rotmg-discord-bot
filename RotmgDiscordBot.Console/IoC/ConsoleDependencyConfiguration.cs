@@ -8,11 +8,11 @@ namespace RotmgDiscordBot.ConsoleWorker.IoC
 {
     public static class ConsoleDependencyConfiguration
     {
-        public static IServiceCollection ConfigureConsoleDependencies(this IServiceCollection services)
+        public static IServiceCollection ConfigureConsoleDependencies(this IServiceCollection services, CancellationToken cancellationToken = default)
         {
             services.AddSingleton<IApplicationSettings, DefaultApplicationSettings>((sp) => getAppSettings())
                 .AddScoped<Main>()
-                .ConfigureDiscordConnection();
+                .ConfigureDiscordClient(cancellationToken);
 
             return services;
         }
@@ -27,18 +27,23 @@ namespace RotmgDiscordBot.ConsoleWorker.IoC
             return config.GetSection("Settings").Get<DefaultApplicationSettings>();
         }
 
-        private static IServiceCollection ConfigureDiscordConnection(this IServiceCollection services)
+        private static IServiceCollection ConfigureDiscordClient(this IServiceCollection services, CancellationToken cancellationToken)
         {
             services.AddSingleton<IClientStarter, ClientStarter>();
             var sp = services.BuildServiceProvider();
-            var clientStarter = sp.GetRequiredService<IClientStarter>();
-            clientStarter.StartAsync();
 
-            while (clientStarter.Client == null)
-                Thread.Sleep(1000);
+            var clientStarter = sp.GetRequiredService<IClientStarter>();
+            clientStarter.StartAsync(cancellationToken);
+            EnsureBotLoggedIn(clientStarter);
 
             services.AddSingleton(clientStarter.Client);
             return services;
+        }
+
+        private static void EnsureBotLoggedIn(IClientStarter clientStarter)
+        {
+            while (clientStarter.Client == null)
+                Thread.Sleep(1000);
         }
     }
 }

@@ -8,6 +8,6 @@ namespace RotmgDiscordBot.Domain.Teste
 {
     public interface ITeste
     {
-        void Run();
+        Task Run(CancellationToken token = default);
     }
 }
