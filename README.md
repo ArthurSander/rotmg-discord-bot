@@ -29,3 +29,18 @@ If done correctly, a Console should open, and the logs will inform you when the 
 For now, it only replyies to messages that don't come from a bot, but the basic configuration and boilerplate for an application are already set. Feel free to use it as you like. I would love to see what you create using it, so don't hesitate to message or email me about your implementation!
 
 Don't forget to [Watch](https://github.com/ArthurSander/rotmg-discord-bot/subscription) and Star this repository to be notified when we implement new features and bug fixes!
+
+## Technologies currently used
+- C# 12
+- .NET 8
+- [Discord.Net](https://github.com/discord-net/Discord.Net) (.NET library to build Discord Apps)
+
+## Soon
+- Add agnostic logging throughout the application.
+- Add persistent data logic (Probably EF Core)
+- Configure Terraform and Docker
+- Features planned:
+    - Staff Applications system:
+        - Using the native Discord interface.
+        - API (to be consumed on WebApps or other applications)
+        - Message Handlers (enable Message Queues)
